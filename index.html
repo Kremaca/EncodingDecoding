@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kódování</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="icon" type="image/x-icon" href="data/encode.ico">
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <body onload="setup()">
+        <div id="main">
+            <div>
+                <img src="data/ASCII.webp">
+            </div>
+            <div class="button-row">
+                <button id="mode-encode" class="mode-button" onclick="changeMode('encode')">Kódování</button>
+                <button id="mode-decode" class="mode-button mode-button-active" onclick="changeMode('decode')">Dekódování</button>
+            </div>
+            <div>
+                <div style="text-align: center;">
+                    <span id="word-length-display">Délka slov: <span id="word-length-counter">4</span></span>
+                    <span style="display: inline-block; width: 24px"></span>
+                    <span style="display: inline-block; padding: 10px; margin: 10px;">
+                        <input id="word-length" type="range" min="4" max="8" value="4" oninput="changeWordLength()">
+                    </span>
+                </div>
+                <hr>
+                <div style="text-align: center;">
+                    <span id="word-chosen"></span>
+                    <span id="arrow">→</span>
+                    <input id="word-input" type="text" placeholder="Tvoje řešení">
+                </div>
+                <div class="button-row">
+                    <button id="word-next" onclick="nextWord()">Další slovo</button>
+                    <button id="word-check" onclick="checkWord()">Zkontrolovat</button>
+                </div>
+                <hr style="margin-block: 18px;">
+                <div class="button-row">
+                    <button id="word-history" style="width: 674px;" onclick="showWords()">Vyřešená slova: <span id="word-counter">0</span></button>
+                </div>
+                <div id="words-solved" style="display: none; font-size: 18px">
+                    <div class="button-row">
+                        <span class="list-title">Dekódovaná</span>
+                        <span class="list-title">Zakódovaná</span>
+                    </div>
+                    <div id="solved-lists">
+                        <div id="solved-decoded"></div>
+                        <div id="solved-encoded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
